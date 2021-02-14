@@ -103,7 +103,7 @@ nav {
 #part-1{
     width: 80%;
     height: 600px;
-    margin: 0 10%;
+    margin: 20px 10%;
     display: grid;
     grid-template-columns: 35% 30% auto;
 }
@@ -153,4 +153,67 @@ nav {
     .txt{
         font-size: 20px;
     }
+}
+
+/* part-2*/
+
+#part-2{
+    width: 80%;
+    height: 1000px;
+    margin: 20px 10%;
+}
+#jeans {
+    width: 100%;
+    height: 50%;
+}
+#jeans-div {
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.txt-h{
+    padding: 10px 0;
+    border-style: none none solid none;
+    border-width: 1px;
+}
+.artc{
+    width: 250px;
+    height: 80%;
+    background-color: white;
+}
+.artc-img {
+    height: 65%;
+    width: 100%;
+    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/11.jpg");
+    background-size: cover;
+}
+.artc-txt {
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.artc-txt div {
+    margin: 5px 0;
+} 
+.col-siz {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.color {
+    width: 15px;
+    height: 15px;
+    background-color: blue;
+}
+.artc-btn button {
+    padding: 1px;
+    width: 80px;
+    border-style: solid;
+    border-radius: 5px;
 }

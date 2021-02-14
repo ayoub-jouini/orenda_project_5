@@ -30,3 +30,160 @@ const imgHover = (j) => {
 for (j = 0; j < 4; j++) {
     imgHover(j);
 }
+let clothes = [
+    {
+        "id": 1,
+        "category": "jeans",
+        "name": "Ripped jeans",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/11.jpg",
+        "size": "XL",
+        "color": "blue",
+        "price": 20.99
+    },
+    {
+        "id": 2,
+        "category": "jeans",
+        "name": "Boyfriend jeans",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/10.jpg",
+        "size": "S",
+        "color": "blue",
+        "price": 24.99
+    },
+    {
+        "id": 3,
+        "category": "shirts",
+        "name": "Ripped sweatshirt",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/7.jpg",
+        "size": "XL",
+        "color": "white",
+        "price": 29.99
+    },
+    {
+        "id": 4,
+        "category": "jackets",
+        "name": "Denim Jacket",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg",
+        "size": "M",
+        "color": "grey",
+        "price": 40.99
+    },
+    {
+        "id": 5,
+        "category": "shirts",
+        "name": "Longsleeve",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg",
+        "size": "L",
+        "color": "black",
+        "price": 120.99
+    },
+    {
+        "id": 6,
+        "category": "jeans",
+        "name": "Ripped jeans",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/11.jpg",
+        "size": "XL",
+        "color": "blue",
+        "price": 20.99
+    },
+    {
+        "id": 7,
+        "category": "jeans",
+        "name": "Boyfriend jeans",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/10.jpg",
+        "size": "S",
+        "color": "blue",
+        "price": 24.99
+    },
+    {
+        "id": 8,
+        "category": "shirts",
+        "name": "Ripped sweatshirt",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/7.jpg",
+        "size": "XL",
+        "color": "white",
+        "price": 29.99
+    },
+    {
+        "id": 9,
+        "category": "jackets",
+        "name": "Denim Jacket",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg",
+        "size": "M",
+        "color": "grey",
+        "price": 40.99
+    },
+    {
+        "id": 10,
+        "category": "shirts",
+        "name": "Longsleeve",
+        "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg",
+        "size": "L",
+        "color": "black",
+        "price": 120.99
+    }
+];
+function jeantArt() {
+    var artc = document.createElement("div");
+    var div1 = document.createElement("div");
+    var div2 = document.createElement("div");
+    artc.setAttribute("class", "artc");
+    div1.setAttribute("class", "artc-img");
+    div2.setAttribute("class", "artc-txt");
+    artc.appendChild(div1);
+    artc.appendChild(div2);
+    var htmlArtc = document.getElementById("jeans-div");
+    var butn = document.getElementsByClassName("more")[0];
+    htmlArtc.appendChild(artc)
+}
+function artcTxt(x) {
+    var name = document.createElement("div");
+    var colSiz = document.createElement("div");
+    var price = document.createElement("div");
+    var btn = document.createElement("div");
+    name.setAttribute("class", "name");
+    colSiz.setAttribute("class", "col-siz");
+    price.setAttribute("class", "price");
+    btn.setAttribute("class", "artc-btn");
+    var htmlTxt = document.getElementsByClassName("artc-txt")[x];
+    htmlTxt.appendChild(name);
+    htmlTxt.appendChild(colSiz);
+    htmlTxt.appendChild(price);
+    htmlTxt.appendChild(btn);
+}
+function artcLast(v) {
+    var siz = document.createElement("h3");
+    var color = document.createElement("div");
+    var btn = document.createElement("button");
+    color.setAttribute("class", "color");
+    siz.setAttribute("class", "siz");
+    var htmlColSiz = document.getElementsByClassName("col-siz")[v];
+    var htmlBtn = document.getElementsByClassName("artc-btn")[v];
+    htmlColSiz.appendChild(siz);
+    htmlColSiz.appendChild(color);
+    htmlBtn.appendChild(btn);
+}
+function range(nt, k) {
+    var siz = document.getElementsByClassName("siz")[nt];
+    var price = document.getElementsByClassName("price")[nt];
+    var nameH = document.createElement("h2");
+    var name1 = document.getElementsByClassName("name")[nt];
+    var nameNode = document.createTextNode(clothes[k].name);
+    nameH.appendChild(nameNode);
+    name1.appendChild(nameH);
+    var sizNode = document.createTextNode(clothes[k].size);
+    siz.appendChild(sizNode);
+    var priceNode = document.createTextNode(clothes[k].price);
+    price.appendChild(priceNode + "DT");
+    document.getElementsByClassName("artc-img")[k].style.backgroundImage = "url(clothes[k].image)";
+    document.getElementsByClassName("color")[k].style.backgroundImage = "url(clothes[k].color)";
+}
+var nt = 0;
+for (k = 0; k < 10; k++) {
+    if (clothes[k].category == "jeans") {
+        jeantArt();
+        artcTxt(nt);
+        artcLast(nt);
+        range(nt, k);
+        nt++;
+    }
+}
