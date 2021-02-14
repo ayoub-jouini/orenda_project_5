@@ -17,3 +17,16 @@ const navSlide = () => {
     });
 }
 navSlide();
+const imgHover = (j) => {
+    const imgDiv = document.querySelectorAll('.txt');
+    const part1Img = document.querySelectorAll('.part1_img');
+    part1Img[j].addEventListener('mouseover', () => {
+        imgDiv[j].classList.add('img-hover');
+    });
+    part1Img[j].addEventListener('mouseout', () => {
+        imgDiv[j].classList.remove('img-hover');
+    });
+}
+for (j = 0; j < 4; j++) {
+    imgHover(j);
+}
