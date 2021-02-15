@@ -156,34 +156,41 @@ function artcLast(v) {
     var btn = document.createElement("button");
     color.setAttribute("class", "color");
     siz.setAttribute("class", "siz");
+    var btnNode = document.createTextNode("Buy");
     var htmlColSiz = document.getElementsByClassName("col-siz")[v];
     var htmlBtn = document.getElementsByClassName("artc-btn")[v];
     htmlColSiz.appendChild(siz);
+    btn.appendChild(btnNode);
     htmlColSiz.appendChild(color);
     htmlBtn.appendChild(btn);
 }
 function range(nt, k) {
     var siz = document.getElementsByClassName("siz")[nt];
     var price = document.getElementsByClassName("price")[nt];
-    var nameH = document.createElement("h2");
+    var artcImg = document.getElementsByClassName("artc-img")[k];
+    //var color = document.getElementsByClassName("color")[k];
     var name1 = document.getElementsByClassName("name")[nt];
+    var nameH = document.createElement("h2");
+    var artcImgI = document.createElement("img");
     var nameNode = document.createTextNode(clothes[k].name);
     nameH.appendChild(nameNode);
     name1.appendChild(nameH);
     var sizNode = document.createTextNode(clothes[k].size);
     siz.appendChild(sizNode);
     var priceNode = document.createTextNode(clothes[k].price);
-    price.appendChild(priceNode + "DT");
-    document.getElementsByClassName("artc-img")[k].style.backgroundImage = "url(clothes[k].image)";
-    document.getElementsByClassName("color")[k].style.backgroundImage = "url(clothes[k].color)";
+    price.appendChild(priceNode);
+    artcImgI.setAttribute("class", "img-part2");
+    artcImgI.setAttribute("src", clothes[k].image);
+    artcImg.appendChild(artcImgI);
+
+    //ll color mezel
+
 }
 var nt = 0;
 for (k = 0; k < 10; k++) {
-    if (clothes[k].category == "jeans") {
-        jeantArt();
-        artcTxt(nt);
-        artcLast(nt);
-        range(nt, k);
-        nt++;
-    }
+    jeantArt();
+    artcTxt(nt);
+    artcLast(nt);
+    range(nt, k);
+    nt++;
 }

@@ -183,6 +183,7 @@ nav {
     width: 250px;
     height: 80%;
     background-color: white;
+    margin: 20px 0;
 }
 .artc-img {
     height: 65%;
@@ -209,11 +210,14 @@ nav {
 .color {
     width: 15px;
     height: 15px;
-    background-color: blue;
 }
 .artc-btn button {
     padding: 1px;
     width: 80px;
     border-style: solid;
     border-radius: 5px;
+}
+.img-part2 {
+    width: 100%;
+    height: 100%;
 }
