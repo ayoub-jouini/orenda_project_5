@@ -159,14 +159,13 @@ nav {
 
 #part-2{
     width: 80%;
-    height: 1000px;
     margin: 20px 10%;
 }
-#jeans {
+#prod {
     width: 100%;
     height: 50%;
 }
-#jeans-div {
+#prod-div {
     height: 90%;
     display: flex;
     flex-direction: row;
@@ -181,7 +180,7 @@ nav {
 }
 .artc{
     width: 250px;
-    height: 80%;
+    height: 500px;
     background-color: white;
     margin: 20px 0;
 }
@@ -207,17 +206,97 @@ nav {
     align-items: center;
     justify-content: space-around;
 }
-.color {
-    width: 15px;
-    height: 15px;
-}
 .artc-btn button {
-    padding: 1px;
-    width: 80px;
+    padding: 5px;
+    width: 100px;
     border-style: solid;
     border-radius: 5px;
+    border-color: black;
+    color: white;
+    background-color: black;
 }
 .img-part2 {
     width: 100%;
     height: 100%;
+}
+@media (max-width:768px){
+    .artc {
+        width: 100%;
+    }
+}
+
+/* part-3*/
+
+#part-3 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 10%;
+    background-color: white;
+    height: 120px;
+    border-radius: 5px;
+}
+.sub {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.sub input {
+    width: 80%;
+    height: 30px;
+    border-radius: 3px;
+}
+.sub button {
+    width: 20%;
+    height: 35px;
+    color: white;
+    background-color: black;
+    border-radius: 3px;
+    border-color: black;
+    font-size: 20px;
+}
+@media (max-width:768px){
+    .sub-txt {
+        font-size: 13px;
+    }
+    .sub {
+            width: 100%;
+        }
+    
+}
+
+/* part-4*/
+
+#part-4 {
+    background-color: black;
+    width: 100%;
+    height: 350px;
+    margin-top: 80px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+#part-4 div {
+    width: 80%;
+    margin: 0 10%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+#part-4 ul {
+    list-style: none;
+}
+#part-4 ul li {
+    margin: 30px 0;
+}
+@media (max-width:768px){
+    #part-4{
+        height: 100%;
+    }
+    #part-4 div {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+    }
+    
 }
