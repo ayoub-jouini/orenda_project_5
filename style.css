@@ -259,12 +259,17 @@ nav {
 }
 @media (max-width:768px){
     .sub-txt {
-        font-size: 13px;
+        font-size: 10px;
     }
     .sub {
             width: 100%;
         }
-    
+    #part-3 div{
+            margin: 5px ;
+        }
+    .sub button {
+        font-size: 15px;
+    }
 }
 
 /* part-4*/
@@ -297,6 +302,9 @@ nav {
     #part-4 div {
         grid-template-columns: auto;
         grid-template-rows: auto auto auto auto;
+    }
+    #part-4 ul li {
+        margin: 15px 0;
     }
     
 }
