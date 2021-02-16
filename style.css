@@ -264,9 +264,9 @@ nav {
     .sub {
             width: 100%;
         }
-    #part-3 div{
-            margin: 5px ;
-        }
+    #part-3 div {
+        margin: 5px;
+    }
     .sub button {
         font-size: 15px;
     }
@@ -306,5 +306,4 @@ nav {
     #part-4 ul li {
         margin: 15px 0;
     }
-    
 }
