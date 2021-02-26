@@ -187,7 +187,6 @@ nav {
 .artc-img {
     height: 65%;
     width: 100%;
-    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/11.jpg");
     background-size: cover;
 }
 .artc-txt {
@@ -206,14 +205,57 @@ nav {
     align-items: center;
     justify-content: space-around;
 }
+.artc-btn{
+    display: flex;
+    flex-direction: row;
+}
 .artc-btn button {
     padding: 5px;
     width: 100px;
+    height: 30px;
     border-style: solid;
     border-radius: 5px;
     border-color: black;
     color: white;
     background-color: black;
+}
+.three-dots-icon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.edit-menu {
+    width: 80px;
+    height: 80px;
+    background-color: #E6E6E6 ;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+.edit-menu div{
+    border-bottom-style:solid ;
+    border-color: black;
+    border-width: 1px;
+}
+.edit-active {
+    display: block;
+}
+.add-btn {
+    width: 250px;
+    height: 500px;
+    background-color: white;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    border-style: solid;
+    border-color: black;
+    cursor: pointer;
+}
+.add-btn:hover {
+    background-color: black;
+    color: white;
 }
 .img-part2 {
     width: 100%;

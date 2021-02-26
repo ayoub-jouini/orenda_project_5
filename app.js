@@ -139,8 +139,7 @@ function jeantArt() {
     artc.appendChild(div1);
     artc.appendChild(div2);
     var htmlArtc = document.getElementById("prod-div");
-    var butn = document.getElementsByClassName("more")[0];
-    htmlArtc.appendChild(artc)
+    htmlArtc.appendChild(artc);
 }
 function artcTxt(x) {
     var name = document.createElement("div");
@@ -169,14 +168,15 @@ function artcLast(v) {
     htmlColSiz.appendChild(siz);
     btn.appendChild(btnNode);
     htmlColSiz.appendChild(color);
+    editMenu(v);
     htmlBtn.appendChild(btn);
 }
-function range(nt, k) {
-    var siz = document.getElementsByClassName("siz")[nt];
-    var color = document.getElementsByClassName("color")[nt];
-    var price = document.getElementsByClassName("price")[nt];
+function range(k) {
+    var siz = document.getElementsByClassName("siz")[k];
+    var color = document.getElementsByClassName("color")[k];
+    var price = document.getElementsByClassName("price")[k];
     var artcImg = document.getElementsByClassName("artc-img")[k];
-    var name1 = document.getElementsByClassName("name")[nt];
+    var name1 = document.getElementsByClassName("name")[k];
     var nameH = document.createElement("h2");
     var artcImgI = document.createElement("img");
     var nameNode = document.createTextNode(clothes[k].name);
@@ -192,11 +192,49 @@ function range(nt, k) {
     artcImgI.setAttribute("src", clothes[k].image);
     artcImg.appendChild(artcImgI);
 }
-var nt = 0;
-for (k = 0; k < 10; k++) {
+function editMenu(v) {
+    htmlBtn = document.getElementsByClassName("artc-btn")[v];
+    var editBtn = document.createElement("img");
+    editBtn.setAttribute("src", "icons/three dots.svg");
+    editBtn.setAttribute("class", "three-dots-icon");
+    var editMenuDiv = document.createElement("div");
+    var menuEditBtn = document.createElement("div");
+    var menuDeleteBtn = document.createElement("div");
+    var menuEditBtnNode = document.createTextNode("Edit");
+    var menuDeleteBtnNode = document.createTextNode("Delete");
+    menuEditBtn.appendChild(menuEditBtnNode);
+    menuDeleteBtn.appendChild(menuDeleteBtnNode);
+    editMenuDiv.appendChild(menuEditBtn);
+    editMenuDiv.appendChild(menuDeleteBtn);
+    editMenuDiv.setAttribute("class", "edit-menu");
+    htmlBtn.appendChild(editMenuDiv);
+    htmlBtn.appendChild(editBtn);
+}
+for (k = 0; k < clothes.length; k++) {
     jeantArt();
-    artcTxt(nt);
-    artcLast(nt);
-    range(nt, k);
-    nt++;
+    artcTxt(k);
+    artcLast(k);
+    range(k);
+}
+function addArtcBtn() {
+    var addBtn = document.createElement("div");
+    var addBtndiv = document.createElement("div");
+    var addBtnNode = document.createTextNode("add");
+    addBtn.setAttribute("class", "add-btn");
+    var htmlArtc = document.getElementById("prod-div");
+    addBtndiv.appendChild(addBtnNode);
+    addBtn.appendChild(addBtndiv);
+    htmlArtc.appendChild(addBtn);
+}
+addArtcBtn();
+
+const editMenuDisplay = (i) => {
+    const editMenubtn = document.querySelectorAll('.three-dots-icon');
+    const editBtn = document.querySelectorAll('.edit-menu');
+    editMenubtn[i].addEventListener('click', () => {
+        editBtn[i].classList.toggle('edit-active');
+    });
+}
+for (i = 0; i < clothes.length; i++) {
+    editMenuDisplay(i);
 }
