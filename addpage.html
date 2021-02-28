@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="addstyle.css">
+</head>
+
+<body>
+    <div id="the-all-div">
+        <!--nav-bar-->
+        <nav>
+            <div id="nav-div">
+                <div id="logo">
+                    <h1>fashion</h1>
+                </div>
+                <div class="menu">
+                </div>
+                <div id="search-bar">
+                    <input type="text" name="search" value="" placeholder="search" />
+                    <button type="button">search</button>
+                </div>
+                <div class="menu-btn">
+                    <img src="icons/menu.svg">
+                </div>
+            </div>
+        </nav>
+
+        <!-- form -->
+
+        <div id="form-part">
+            <div class="form-div">
+                <div>
+                    <h1><b>Add another item:</b></h1>
+                </div>
+                <div class="form-margin">
+                    <form name="myForm" onsubmit="addItem()">
+                        <div class="name-category form-display">
+                            <div class="name-div input-display">
+                                <label for="fname">
+                                    <h2>Name:</h2>
+                                </label>
+                                <input type="text" id="fname" name="fname" class="text-input">
+                            </div>
+                            <div class="category-div input-display">
+                                <label for="category">
+                                    <h2>Category:</h2>
+                                </label>
+                                <select id="category" name="category" class="select-input">
+                                    <option value="jeans">jeans</option>
+                                    <option value="shirts">shirts</option>
+                                    <option value="jackets">jackets</option>
+                                    <option value="Sweaters">Sweaters</option>
+                                    <option value="coats">coats</option>
+                                    <option value="Trousers">Trousers</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="size-color form-display">
+                            <div class="size-div input-display">
+                                <label for="size">
+                                    <h2>Size:</h2>
+                                </label>
+                                <select id="Size" name="Size" class="select-input">
+                                    <option value="S">S</option>
+                                    <option value="XS">XS</option>
+                                    <option value="jackets">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
+                            <div class="color-div input-display">
+                                <label for="color">
+                                    <h2>color:</h2>
+                                </label>
+                                <select id="color" name="color" class="select-input">
+                                    <option value="blue">blue</option>
+                                    <option value="white">white</option>
+                                    <option value="grey">grey</option>
+                                    <option value="black">black</option>
+                                    <option value="red">red</option>
+                                    <option value="green">green</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="price form-display">
+                            <div class="price-div input-display">
+                                <label for="fprice">
+                                    <h2>price:</h2>
+                                </label>
+                                <input type="text" id="fprice" name="fprice" class="text-input">
+                            </div>
+                        </div>
+                        <div class="image form-display">
+                            <div class="image-div input-display">
+                                <label for="fimage">
+                                    <h2>image url:</h2>
+                                </label>
+                                <input type="text" id="fimage" name="fimage" class="text-input">
+                            </div>
+                        </div>
+                        <input type="submit" value="add" class="add-input">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--part-3-->
+
+        <div id="part-4">
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <p>455, 13 Aout Archiméde S1 , Poudriére 1</p>
+                            <p>30000 Sfax</p>
+                            <p>Tunisia</p>
+                        </li>
+                        <li>36 400 404 - 74266982</li>
+                        <li>Client@Fashion.Tn</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <h2>USEFUL LINKS</h2>
+                        </li>
+                        <li>Services</li>
+                        <li>Contact us</li>
+                        <li>Stores</li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <h2>INFORMATIONS</h2>
+                        </li>
+                        <li>Presentation</li>
+                        <li>Log in</li>
+                        <li>My account</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <h2>PRODUCTS</h2>
+                        </li>
+                        <li>Promotions</li>
+                        <li>New products</li>
+                        <li>Bestsellers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>

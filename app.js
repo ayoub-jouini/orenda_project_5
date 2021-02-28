@@ -219,10 +219,13 @@ for (k = 0; k < clothes.length; k++) {
 function addArtcBtn() {
     var addBtn = document.createElement("div");
     var addBtndiv = document.createElement("div");
+    var addLink = document.createElement("a");
     var addBtnNode = document.createTextNode("add");
+    addLink.setAttribute("href", "addpage.html");
     addBtn.setAttribute("class", "add-btn");
     var htmlArtc = document.getElementById("prod-div");
-    addBtndiv.appendChild(addBtnNode);
+    addLink.appendChild(addBtnNode);
+    addBtndiv.appendChild(addLink);
     addBtn.appendChild(addBtndiv);
     htmlArtc.appendChild(addBtn);
 }
@@ -237,4 +240,23 @@ const editMenuDisplay = (i) => {
 }
 for (i = 0; i < clothes.length; i++) {
     editMenuDisplay(i);
+}
+function addItem() {
+    var itemName = document.forms["myForm"]["fname"].value;
+    var itemCategory = document.forms["myForm"]["category"].value;
+    var itemSize = document.forms["myForm"]["Size"].value;
+    var itemColor = document.forms["myForm"]["color"].value;
+    var itemPrice = document.forms["myForm"]["fprice"].value;
+    var itemImage = document.forms["myForm"]["fimage"].value;
+    var nbr = clothes.length + 1;
+    var item = {
+        "id": nbr + 1,
+        "category": itemName,
+        "name": itemCategory,
+        "image": itemImage,
+        "size": itemSize,
+        "color": itemColor,
+        "price": itemPrice
+    };
+    clothes.push(item);
 }
