@@ -238,6 +238,7 @@ for (k = 0; k < clothes.length; k++) {
     artcTxt(k);
     artcLast(k);
     range(k, clothes[k].name, clothes[k].color, clothes[k].size, clothes[k].price, clothes[k].image);
+    deleteItemBtn(clothes[k].id - 1);
 }
 
 
@@ -268,6 +269,7 @@ function addItem() {
     artcLast(nbr);
     range(k, itemName, itemColor, itemSize, itemPrice, itemImage);
     editMenuDisplay(nbr);
+    deleteItemBtn(nbr);
 }
 
 
@@ -282,3 +284,12 @@ document.querySelector('.close').addEventListener("click", function () {
 });
 
 
+//delete 
+
+function deleteItemBtn(x) {
+    var deleteItem = document.getElementsByClassName("delete-btn")[x];
+    deleteItem.addEventListener('click', function () {
+        var item = document.getElementsByClassName("artc")[x];
+        item.remove();
+    });
+}
