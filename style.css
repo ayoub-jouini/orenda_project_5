@@ -240,7 +240,7 @@ nav {
 .edit-active {
     display: block;
 }
-.add-btn {
+.add-btn,.add-btn:visited {
     width: 250px;
     height: 500px;
     background-color: white;
@@ -260,6 +260,9 @@ nav {
 .img-part2 {
     width: 100%;
     height: 100%;
+}
+.delete-btn {
+    cursor: pointer;
 }
 @media (max-width:768px){
     .artc {
@@ -347,5 +350,111 @@ nav {
     }
     #part-4 ul li {
         margin: 15px 0;
+    }
+}
+
+/*form*/
+
+#form-part {
+    width: 100%;
+    height: 400px;
+}
+.form-div {
+    width: 90%;
+    margin: 5% 5%;
+}
+.form-margin{
+    margin: 40px 0;
+    height: 90%;
+}
+.form-display{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 2% 0;
+}
+.name-category div,.size-color div,.price div,.image div {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+label {
+    margin-right: 10%;
+}
+.text-input{
+    width: 200px;
+}
+.select-input{
+    width: 100px;
+}
+form {
+    font-display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+@media (max-width:768px) {
+    .name-category div,.size-color div {
+        width: 100%;
+        margin: 20px 0;
+    } 
+    #form-part {
+        height: 700px;
+        font-size: 13px;
+    }
+    .text-input{
+        width: 150px;
+    }
+    .select-input{
+        width: 70px;
+    }
+}
+.add-input {
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+}
+.add-input:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+    cursor: pointer;
+}
+
+/*popup*/
+
+.bg-modal {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-contents {
+	height: 400px;
+	width: 80%;
+	background-color: #E6E6E6;
+	position: fixed;
+	border-radius: 4px;
+}
+
+.close {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 42px;
+	color: #333;
+	transform: rotate(45deg);
+	cursor: pointer;
+}
+@media (max-width:768px){
+    .modal-contents {
+        height: 600px;
+        width: 100%;
     }
 }

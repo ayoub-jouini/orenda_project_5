@@ -129,7 +129,24 @@ let clothes = [
         "price": 120.99
     }
 ];
-function jeantArt() {
+
+function addArtcBtn() {
+    var addBtn = document.createElement("div");
+    var addBtndiv = document.createElement("div");
+    var addLink = document.createElement("a");
+    var addBtnNode = document.createTextNode("add");
+    addBtn.setAttribute("class", "add-btn");
+    var htmlArtc = document.getElementById("prod-div");
+    addLink.appendChild(addBtnNode);
+    addBtndiv.appendChild(addLink);
+    addBtn.appendChild(addBtndiv);
+    htmlArtc.appendChild(addBtn);
+}
+addArtcBtn();
+
+//items
+
+function prodArt() {
     var artc = document.createElement("div");
     var div1 = document.createElement("div");
     var div2 = document.createElement("div");
@@ -139,7 +156,8 @@ function jeantArt() {
     artc.appendChild(div1);
     artc.appendChild(div2);
     var htmlArtc = document.getElementById("prod-div");
-    htmlArtc.appendChild(artc);
+    var addBtn = document.getElementsByClassName("add-btn")[0];
+    htmlArtc.insertBefore(artc, addBtn);
 }
 function artcTxt(x) {
     var name = document.createElement("div");
@@ -171,7 +189,7 @@ function artcLast(v) {
     editMenu(v);
     htmlBtn.appendChild(btn);
 }
-function range(k) {
+function range(k, n, c, s, p, i) {
     var siz = document.getElementsByClassName("siz")[k];
     var color = document.getElementsByClassName("color")[k];
     var price = document.getElementsByClassName("price")[k];
@@ -179,19 +197,22 @@ function range(k) {
     var name1 = document.getElementsByClassName("name")[k];
     var nameH = document.createElement("h2");
     var artcImgI = document.createElement("img");
-    var nameNode = document.createTextNode(clothes[k].name);
-    var colorNode = document.createTextNode(clothes[k].color);
+    var nameNode = document.createTextNode(n);
+    var colorNode = document.createTextNode(c);
     color.appendChild(colorNode);
     nameH.appendChild(nameNode);
     name1.appendChild(nameH);
-    var sizNode = document.createTextNode(clothes[k].size);
+    var sizNode = document.createTextNode(s);
     siz.appendChild(sizNode);
-    var priceNode = document.createTextNode(clothes[k].price);
+    var priceNode = document.createTextNode(p);
     price.appendChild(priceNode);
     artcImgI.setAttribute("class", "img-part2");
-    artcImgI.setAttribute("src", clothes[k].image);
+    artcImgI.setAttribute("src", i);
     artcImg.appendChild(artcImgI);
 }
+
+//edit,add,delete btns
+
 function editMenu(v) {
     htmlBtn = document.getElementsByClassName("artc-btn")[v];
     var editBtn = document.createElement("img");
@@ -204,6 +225,8 @@ function editMenu(v) {
     var menuDeleteBtnNode = document.createTextNode("Delete");
     menuEditBtn.appendChild(menuEditBtnNode);
     menuDeleteBtn.appendChild(menuDeleteBtnNode);
+    menuDeleteBtn.setAttribute("class", "delete-btn");
+    menuEditBtn.setAttribute("class", "edit-btn");
     editMenuDiv.appendChild(menuEditBtn);
     editMenuDiv.appendChild(menuDeleteBtn);
     editMenuDiv.setAttribute("class", "edit-menu");
@@ -211,25 +234,12 @@ function editMenu(v) {
     htmlBtn.appendChild(editBtn);
 }
 for (k = 0; k < clothes.length; k++) {
-    jeantArt();
+    prodArt();
     artcTxt(k);
     artcLast(k);
-    range(k);
+    range(k, clothes[k].name, clothes[k].color, clothes[k].size, clothes[k].price, clothes[k].image);
 }
-function addArtcBtn() {
-    var addBtn = document.createElement("div");
-    var addBtndiv = document.createElement("div");
-    var addLink = document.createElement("a");
-    var addBtnNode = document.createTextNode("add");
-    addLink.setAttribute("href", "addpage.html");
-    addBtn.setAttribute("class", "add-btn");
-    var htmlArtc = document.getElementById("prod-div");
-    addLink.appendChild(addBtnNode);
-    addBtndiv.appendChild(addLink);
-    addBtn.appendChild(addBtndiv);
-    htmlArtc.appendChild(addBtn);
-}
-addArtcBtn();
+
 
 const editMenuDisplay = (i) => {
     const editMenubtn = document.querySelectorAll('.three-dots-icon');
@@ -241,6 +251,9 @@ const editMenuDisplay = (i) => {
 for (i = 0; i < clothes.length; i++) {
     editMenuDisplay(i);
 }
+
+//add items
+
 function addItem() {
     var itemName = document.forms["myForm"]["fname"].value;
     var itemCategory = document.forms["myForm"]["category"].value;
@@ -248,15 +261,24 @@ function addItem() {
     var itemColor = document.forms["myForm"]["color"].value;
     var itemPrice = document.forms["myForm"]["fprice"].value;
     var itemImage = document.forms["myForm"]["fimage"].value;
-    var nbr = clothes.length + 1;
-    var item = {
-        "id": nbr + 1,
-        "category": itemName,
-        "name": itemCategory,
-        "image": itemImage,
-        "size": itemSize,
-        "color": itemColor,
-        "price": itemPrice
-    };
-    clothes.push(item);
+    var nbr = clothes.length++;
+
+    prodArt();
+    artcTxt(nbr);
+    artcLast(nbr);
+    range(k, itemName, itemColor, itemSize, itemPrice, itemImage);
+    editMenuDisplay(nbr);
 }
+
+
+//popup
+
+document.getElementsByClassName('add-btn')[0].addEventListener("click", function () {
+    document.querySelector('.bg-modal').style.display = "flex";
+});
+
+document.querySelector('.close').addEventListener("click", function () {
+    document.querySelector('.bg-modal').style.display = "none";
+});
+
+
