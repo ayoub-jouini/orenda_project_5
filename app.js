@@ -196,7 +196,9 @@ function range(k, n, c, s, p, i) {
     var artcImg = document.getElementsByClassName("artc-img")[k];
     var name1 = document.getElementsByClassName("name")[k];
     var nameH = document.createElement("h2");
+    nameH.setAttribute("class", "name-txt");
     var artcImgI = document.createElement("img");
+    artcImgI.setAttribute("class", "img-txt");
     var nameNode = document.createTextNode(n);
     var colorNode = document.createTextNode(c);
     color.appendChild(colorNode);
@@ -238,7 +240,8 @@ for (k = 0; k < clothes.length; k++) {
     artcTxt(k);
     artcLast(k);
     range(k, clothes[k].name, clothes[k].color, clothes[k].size, clothes[k].price, clothes[k].image);
-    deleteItemBtn(clothes[k].id - 1);
+    deleteItemBtn(k);
+    editItemBtn(k)
 }
 
 
@@ -278,18 +281,65 @@ function addItem() {
 document.getElementsByClassName('add-btn')[0].addEventListener("click", function () {
     document.querySelector('.bg-modal').style.display = "flex";
 });
-
 document.querySelector('.close').addEventListener("click", function () {
     document.querySelector('.bg-modal').style.display = "none";
 });
+
 
 
 //delete 
 
 function deleteItemBtn(x) {
     var deleteItem = document.getElementsByClassName("delete-btn")[x];
-    deleteItem.addEventListener('click', function () {
-        var item = document.getElementsByClassName("artc")[x];
+    deleteItem.addEventListener('click', function (event) {
+        var item = event.target.parentNode.parentNode.parentNode.parentNode;
         item.remove();
     });
+}
+
+//edit 
+
+function editItemBtn(x) {
+
+    document.getElementsByClassName('edit-btn')[x].addEventListener("click", function (event) {
+        var item = event.target.parentNode.parentNode.parentNode;
+        document.querySelector('.edit-bg-modal').style.display = "flex";
+        var editItem = document.getElementsByClassName("edit-input")[0];
+        editItem.addEventListener('click', function () {
+            var itemName = document.forms["editForm"]["fname"].value;
+            var itemSize = document.forms["editForm"]["Size"].value;
+            var itemColor = document.forms["editForm"]["color"].value;
+            var itemPrice = document.forms["editForm"]["fprice"].value;
+            var itemImage = document.forms["editForm"]["fimage"].value;
+            if (itemName != "") {
+                var nameNode = document.createTextNode(itemName);
+                item.childNodes[0].firstChild.firstChild.remove();
+                item.childNodes[0].firstChild.appendChild(nameNode)
+            }
+            if (itemSize != 0) {
+                var sizeNode = document.createTextNode(itemSize);
+                item.childNodes[1].firstChild.firstChild.remove();
+                item.childNodes[1].firstChild.appendChild(sizeNode);
+            }
+            if (itemColor != 0) {
+                var colorNode = document.createTextNode(itemColor);
+                item.childNodes[1].lastChild.firstChild.remove();
+                item.childNodes[1].lastChild.appendChild(colorNode);
+            }
+            if (itemPrice != "") {
+                var priceNode = document.createTextNode(itemPrice);
+                item.childNodes[2].firstChild.remove();
+                item.childNodes[2].appendChild(priceNode);
+            }
+            if (itemImage != "") {
+                var imageNode = document.createTextNode(itemImage);
+                item.parentNode.firstChild.firstChild.setAttribute("src", imageNode);
+            }
+        });
+    });
+    var close = document.querySelectorAll('.close');
+    close[1].addEventListener("click", function () {
+        document.querySelector('.edit-bg-modal').style.display = "none";
+    });
+
 }
